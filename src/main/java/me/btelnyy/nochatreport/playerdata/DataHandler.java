@@ -12,6 +12,7 @@ import me.btelnyy.nochatreport.constants.Globals;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
@@ -101,7 +102,8 @@ public class DataHandler {
             GetData(UUID);
             return new PlayerData();
         }
-        Yaml yaml = new Yaml(new Constructor(PlayerData.class));
+
+        Yaml yaml = new Yaml(new Constructor(PlayerData.class, new LoaderOptions()));
         if (player_data.exists()) {
             yamldata = null;
             try {
@@ -140,7 +142,7 @@ public class DataHandler {
             GetData(UUID);
             return new PlayerData();
         }
-        Yaml yaml = new Yaml(new Constructor(PlayerData.class));
+        Yaml yaml = new Yaml(new Constructor(PlayerData.class, new LoaderOptions()));
         if (player_data.exists()) {
             yamldata = null;
             try {
